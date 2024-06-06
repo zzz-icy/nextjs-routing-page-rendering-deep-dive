@@ -11,6 +11,7 @@ export default async function NewsPage() {
 	return (
 		<>
 			<p>News Page News Page</p>
+			<p>News Page News Page</p>
 			<NewsList news={news} />
 		</>
 	)
