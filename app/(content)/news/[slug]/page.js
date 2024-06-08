@@ -1,9 +1,9 @@
-import { DUMMY_NEWS } from "@/dummy-news"
 import { notFound } from "next/navigation"
 import Link from "next/link"
-export default function NewsDetailPage({ params }) {
+import { getNewsItem } from "@/lib/news"
+export default async function NewsDetailPage({ params }) {
 	const newsSlug = params.slug
-	const newsItem = DUMMY_NEWS.find((newsItem) => newsItem.slug === newsSlug)
+	const newsItem = await getNewsItem(newsSlug)
 	if (!newsItem) {
 		// otherwise nextjs would not be able to know whether a new is found or not, just the not found page is not enough
 		notFound()
