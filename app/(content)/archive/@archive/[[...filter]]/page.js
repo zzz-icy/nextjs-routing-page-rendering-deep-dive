@@ -9,7 +9,7 @@ import {
 import Link from "next/link"
 export default async function FilteredNewsPage({ params }) {
 	const filter = params.filter //will give us an array of all matched segments(catch all routes )
-
+	console.log("filter", filter)
 	const selectedYear = filter?.[0]
 	const selectedMonth = filter?.[1]
 	let news
@@ -24,6 +24,7 @@ export default async function FilteredNewsPage({ params }) {
 		news = await getNewsForYearAndMonth(selectedYear, selectedMonth)
 		links = []
 	}
+	console.log("aaa", news, selectedYear, selectedMonth)
 
 	let newsContent = <p>No news found for the selected year.</p>
 	if (news && news.length > 0) {
