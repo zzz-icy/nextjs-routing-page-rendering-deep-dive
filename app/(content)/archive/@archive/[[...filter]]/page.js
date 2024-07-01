@@ -20,11 +20,11 @@ export default async function FilteredNewsPage({ params }) {
 		links = getAvailableNewsMonths(selectedYear)
 	}
 
-	// if (selectedYear && selectedMonth) {
-	// 	news = await getNewsForYearAndMonth(selectedYear, selectedMonth)
-	// 	links = []
-	// }
-	console.log("aaa", news, selectedYear, selectedMonth)
+	if (selectedYear && selectedMonth) {
+		news = await getNewsForYearAndMonth(selectedYear, selectedMonth)
+		links = []
+	}
+	// console.log("aaa", news, selectedYear, selectedMonth)
 
 	let newsContent = <p>No news found for the selected year.</p>
 	if (news && news.length > 0) {
